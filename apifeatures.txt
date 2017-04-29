@@ -1,0 +1,38 @@
+2c5496cee886d730152d30bf4d2c65e1
+
+http://apilayer.net/api/live?access_key=YOUR_ACCESS_KEY 
+http://www.apilayer.net/api/live?access_key=f4d6d82ba74565843257fc63eaf769af
+
+http://apilayer.net/api/list
+    ? access_key = YOUR_ACCESS_KEY
+
+http://apilayer.net/api/live
+    ? access_key = YOUR_ACCESS_KEY
+    & currencies = AUD,EUR,GBP,PLN
+
+http://apilayer.net/api/historical
+    ? access_key = YOUR_ACCESS_KEY
+    & date = YYYY-MM-DD 
+
+http://apilayer.net/api/live
+    ? access_key = YOUR_ACCESS_KEY
+    & currencies = AUD,CHF,EUR,GBP,PLN
+
+http://apilayer.net/api/live
+    ? access_key = YOUR_ACCESS_KEY
+    & source = GBP
+
+http://apilayer.net/api/convert
+    ? access_key = YOUR_ACCESS_KEY
+    & from = USD
+    & to = GBP       
+    & amount = 10
+
+http://apilayer.net/api/convert
+    ? access_key = YOUR_ACCESS_KEY
+    & from = USD
+    & to = GBP
+    & amount = 10
+    & date = 2005-01-01
+
+http://apilayer.net/api/live?access_key=2c5496cee886d730152d30bf4d2c65e1&format=1

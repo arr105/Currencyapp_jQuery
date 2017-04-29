@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <xml version='1.0' encoding='utf-8'>
+    
+<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="1.0.0" android:windowSoftInputMode="adjustPan" package="dig.phonegap.loa_app" xmlns:android="http://schemas.android.com/apk/res/android">
+<supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+    
+<uses-permission android:name="android.permission.INTERNET" />
+    
+    <script src="js/jquery-3.1.1.min.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/currencyapp.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+        <script>
+        $(document).ready(function(){
+          $("#btnGetexchangevalue").on("click",function(){
+              //console.log("clicked");
+              var exc = $("#currencyvalue").val();
+              if(exc != ""){
+              getcurrency(exc);
+              }
+              else
+                  {
+                      alert("Enter valid data");
+                  }
+          });  
+        });
+            
+            function getcurrency(type)
+            {
+                var ak = "2c5496cee886d730152d30bf4d2c65e1";
+                var cururl = "http://apilayer.net/api/live?access_key=" + ak + "&currencies=" + type;
+                
+                $.getJSON(cururl,function(ete){
+                
+                    $("#cur").html("AUD:   " + ete.quotes.USDAUD + "<img src ='images/aud.png' width='25'>" + "<br/>" + "ALL:    " + ete.quotes.USDALL + "<img src ='images/all.png' width='25'>" + "<br/>" + "AMD:    " + ete.quotes.USDAMD + "<img src ='images/amd.png' width='25'>" + "<br/>" + "ANG:    " + ete.quotes.USDANG + "<img src ='images/ang.png' width='25'>" + "<br/>" + "INR:    " + ete.quotes.USDINR + "<img src ='images/inr.png' width='25'>" + "<br/>"+ "BBD:    " + ete.quotes.USDBBD + "<img src ='images/bbd.png' width='25'>" + "<br/>" + "ERN:    " + ete.quotes.USDERN + "<img src ='images/ern.png' width='25'>" + "<br/>" + "EEK:    " + ete.quotes.USDEEK + "<img src ='images/eek.png' width='25'>" + "<br/>" + "JPY:    " + ete.quotes.USDJPY + "<img src ='images/jpy.png' width='25'>" );
+                    
+                    console.log(ete);
+                    
+                });   
+            }
+            
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <section id="tenknowncountries" data-role="page">
+            <div data-role="header">
+                <h1> currency rate for countries</h1>
+                </div>
+                <div class="ui-content" role ="main">
+                    <h1> Enter the following values only: AUD, ALL, AMD, ANG, INR, BBD, ERN, JPY, EEK</h1>
+                    <input type="text" id="currencyvalue" value="" />
+        <input type="button" id="btnGetexchangevalue" value="Getexchangevalue" />
+                    <div id="cur"> </div>
+                    <p>
+                        <a href="#travelex">Info about travelex website</a>
+                    </p>
+                    <p>
+                        <a href="#cifex">Info about cifex webiste</a>
+                    </p>
+                    </div>
+            <div data-role="footer">
+                <h1>Results may vary depending on API</h1>
+                </div>
+        </section>
+        <section id="travelex" data-role="page">
+            <div data-role="header">
+                <h1> Info about travelex website</h1>
+                </div>
+                <div class="ui-content" role ="main">
+                    <p> Thanks for using our API. Just go to Travelex website for more information on currency exchange</p>
+                    <a href="#tenknowncountries">Currency exchange rate for renowned countries</a>
+                    </div>
+            <div data-role="footer">
+                <h1>arr105@pitt.edu</h1>
+                </div>
+        </section>
+        <section id="cifex" data-role="page">
+            <div data-role="header">
+                <h1> Info about cifex website</h1>
+                </div>
+                <div class="ui-content" role ="main">
+                    <p> Thanks for using our API. Just go to cifex website for more information on currency exchange</p>
+                        <a href="#tenknowncountries">Currency exchange rate for renowned countries</a>
+                    </div>
+            <div data-role="footer">
+                <h1>arr105@pitt.edu</h1>
+                </div>
+        </section>
+    </body>
+</html>
